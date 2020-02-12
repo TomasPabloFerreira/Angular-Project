@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-Project';
+  buttonText = 'Presionar';
+  inputValue = '';
+
+  changeTitles():void {
+    this.title = 'Nuevo nombre';
+    this.buttonText = 'Me presionaste';
+    this.inputValue = 'Nuevo valor';
+  }
+
+  showInputValue():void {
+    console.log(this.inputValue);
+  }
 }
