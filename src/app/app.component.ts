@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PlaceholderService } from './services/placeholder.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Angular-Project';
-  buttonText = 'Presionar';
-  inputValue = '';
+export class AppComponent implements OnInit {
+  users = [];
 
-  changeTitles():void {
-    this.title = 'Nuevo nombre';
-    this.buttonText = 'Me presionaste';
-    this.inputValue = 'Nuevo valor';
+  constructor(private phService: PlaceholderService) { }
+  
+  async ngOnInit() {
+    this.phService.getUsersAlt().subscribe(users => this.users = users);
   }
 
-  showInputValue():void {
-    console.log(this.inputValue);
+  deleteFirst ():void {
+    this.users.shift();
   }
+  
 }

@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+const modules = [
+  CommonModule,
+  FormsModule,
+  HttpClientModule,
+]
 
 @NgModule({
-  declarations: [
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-  ],
-  exports: [
-    CommonModule,
-    FormsModule,
-  ]
+  declarations: [],
+  imports: [...modules],
+  exports: [...modules],
 })
 export class CommonsModule {
 
