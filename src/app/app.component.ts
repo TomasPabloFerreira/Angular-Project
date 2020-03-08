@@ -8,7 +8,7 @@ import { PlaceholderService } from './services/placeholder.service';
 })
 export class AppComponent implements OnInit {
   users = [];
-
+ title ="hola hans"
   constructor(private phService: PlaceholderService) { }
   
   async ngOnInit() {

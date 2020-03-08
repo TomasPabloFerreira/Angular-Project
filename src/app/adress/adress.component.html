@@ -1,0 +1,67 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>USUARIO 4</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label for="name"></label>
+            <input matInput id="name" placeholder="Tomas" formControlName="name">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label for="username">Nombre de usuario</label>
+            <input matInput id="username" placeholder="usuario123" formControlName="username">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label for="email">Email</label>
+            <input matInput id="email" placeholder="tomasferreira@gmail.com" formControlName="email">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <label for="addressStreet">Direccion</label>
+            <input matInput id="addressStreet" placeholder="Santa Fe 4056" formControlName="addressStreet">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Celular" formControlName="phone">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Pagina web" formControlName="website">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="compania" formControlName="companyName">
+          </mat-form-field>
+        </div>
+      </div>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

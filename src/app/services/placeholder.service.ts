@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class PlaceholderService {
 
   constructor(private httpClient: HttpClient) { }
+  
   async getUsers(): Promise <User[]> {
     let users = await this.httpClient.get<User[]>(
       'https://jsonplaceholder.typicode.com/users',
@@ -20,7 +21,13 @@ export class PlaceholderService {
     let observableUsers = this.httpClient.get<User[]>(
       'https://jsonplaceholder.typicode.com/users',
     );
+    return observableUsers;
+  }
 
+  getUser(id: number): Observable <User> {
+    let observableUsers = this.httpClient.get<User>(
+      'https://jsonplaceholder.typicode.com/users/' + id,
+    );
     return observableUsers;
   }
 }
