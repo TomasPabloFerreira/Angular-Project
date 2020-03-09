@@ -27,7 +27,7 @@ const routes: Routes = [
     children: [
       { path: "adress", component: AdressComponent },
       { path: "table", component: TablaComponent },
-      { path: "table/edit/:id", component: AdressComponent },
+      { path: "address/edit/:id", component: AdressComponent },
       { path: "drag", component: DragComponent },
       { path: "tree", component: TreeComponent },
       { path: "home", component: DashComponent },

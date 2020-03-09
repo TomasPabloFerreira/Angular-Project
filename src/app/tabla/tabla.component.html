@@ -16,7 +16,11 @@
     <!-- email Column -->
     <ng-container matColumnDef="email">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>email</th>
-      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+      <td mat-cell *matCellDef="let row">
+        <a href="mailto: {{row.email}}" target="_blank" title="Send Email">
+          {{row.email}}
+        </a>
+      </td>
     </ng-container>
 
     <!-- phone Column -->
@@ -29,7 +33,9 @@
     <ng-container matColumnDef="website">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Sitio web</th>
       <td mat-cell *matCellDef="let row">
-        <a href="http://{{row.website}}" target="_blank">{{row.website}}</a>
+        <a href="http://{{row.website}}" target="_blank" title="Open Website">
+          {{row.website}}
+        </a>
       </td>
     </ng-container>
 
@@ -44,19 +50,21 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
       <td mat-cell *matCellDef="let row">
         <ng-container *ngIf="!editing || row.id != userEditing else confirmButton">
-          <button name="editUser" id="editUser" (click)="editUser(row.id)" value="Editar">
+          <button mat-raised-button color="primary" name="editUser" id="editUser"
+          (click)="editUser(row.id)" value="Editar">
             <i class="material-icons">edit</i>
           </button>
         </ng-container>
 
         <ng-template #confirmButton>
-          <button id="confirmEdit" (click)="confirmEdit(row.id)">
+          <button id="confirmEdit" mat-raised-button color="primary"
+          (click)="confirmEdit(row.id)">
             <i class="material-icons">check_circle</i>
           </button>
         </ng-template>
-        
+
       </td>
-<!-- 
+      <!-- 
       <ng-container  *ngIf="editing && row.id = userEditing">
         formulario
       </ng-container> -->

@@ -38,7 +38,7 @@ export class TablaComponent implements AfterViewInit, OnInit {
   }
 
   editUser(id: number) {
-    // this.router.navigate(["adress"]);
+    this.router.navigate(["address/edit/"+id]);
     this.userEditing = id;
     this.editing = true;
   }
