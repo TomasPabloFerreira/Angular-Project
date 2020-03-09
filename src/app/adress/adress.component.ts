@@ -20,7 +20,9 @@ export class AdressComponent implements OnInit {
     companyName: ['']
   });
 
-  userId: number = -1;
+  userId: number;
+  userName: string;
+  editing: boolean;
 
   hasUnitNumber = false;
 
@@ -57,9 +59,13 @@ export class AdressComponent implements OnInit {
           this.addressForm.controls.phone.setValue(user.phone);
           this.addressForm.controls.website.setValue(user.website);
           this.addressForm.controls.companyName.setValue(user.company.name);
+          this.userName = user.name;
         });
+        this.editing = true;
+      } else {
+        this.editing = false;
       }
-
+      
     });
   }
 

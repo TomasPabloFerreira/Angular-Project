@@ -1,21 +1,22 @@
 <form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
-      <mat-card-title>USUARIO 4</mat-card-title>
+      <mat-card-title *ngIf="!editing">Adding user</mat-card-title>
+      <mat-card-title *ngIf="editing">Editing user {{userName}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
     
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput id="name" placeholder="Nombre" formControlName="name">
+            <input matInput id="name" placeholder="Name" formControlName="name">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput id="username" placeholder="Usuario" formControlName="username">
+            <input matInput id="username" placeholder="UserName" formControlName="username">
           </mat-form-field>
         </div>
       </div>
@@ -29,28 +30,28 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput id="addressStreet" placeholder="Dirección" formControlName="addressStreet">
+            <input matInput id="addressStreet" placeholder="Address" formControlName="addressStreet">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Teléfono" formControlName="phone">
+            <input matInput placeholder="Phone" formControlName="phone">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Página web" formControlName="website">
+            <input matInput placeholder="Website" formControlName="website">
           </mat-form-field>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Compañía" formControlName="companyName">
+            <input matInput placeholder="Company" formControlName="companyName">
           </mat-form-field>
         </div>
       </div>
