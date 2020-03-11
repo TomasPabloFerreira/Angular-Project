@@ -1,17 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
-import { FirstComponentComponent } from './first-component/first-component.component';
-import { EjemploComponent } from './ejemplo/ejemplo.component';
-import { PrimariosComponent } from './primarios/primarios.component';
-import { RojoComponent } from './rojo/rojo.component';
-import { RojoClaroComponent } from './rojo-claro/rojo-claro.component';
-import { RojoOscuroComponent } from './rojo-oscuro/rojo-oscuro.component';
-import { SecundariosComponent } from './secundarios/secundarios.component';
-import { AzulComponent } from './azul/azul.component';
-import { AmarilloComponent } from './amarillo/amarillo.component';
-import { VerdeComponent } from './verde/verde.component';
-import { VioletaComponent } from './violeta/violeta.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { DragComponent } from './drag/drag.component';
 import { TreeComponent } from './tree/tree.component';
@@ -36,7 +24,10 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    useHash: true
+  })],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

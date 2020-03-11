@@ -42,6 +42,7 @@ export class TablaComponent implements AfterViewInit, OnInit {
     this.userEditing = id;
     this.editing = true;
   }
+  
   confirmEdit(id: number) {
     this.editing = false;
     this.userEditing = null;

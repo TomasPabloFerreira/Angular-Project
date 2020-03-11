@@ -67,18 +67,25 @@ export class AdressComponent implements OnInit {
 
       let userIdTmp = this.activatedRoute.snapshot.paramMap.get('id');
 
-      if (userIdTmp != null) {
+      if (userIdTmp) {
         this.userId = parseInt(userIdTmp);
-        this.placeholderService.getUser(this.userId).subscribe(user => {
-          this.userForm.controls.name.setValue(user.name);
-          this.userForm.controls.username.setValue(user.username);
-          this.userForm.controls.email.setValue(user.email);
-          this.userForm.controls.addressStreet.setValue(user.address.street);
-          this.userForm.controls.phone.setValue(user.phone);
-          this.userForm.controls.website.setValue(user.website);
-          this.userForm.controls.companyName.setValue(user.company.name);
-          this.userName = user.name;
-        });
+        this.placeholderService.getUser(this.userId).subscribe(
+          user => {
+            this.userForm.controls.name.setValue(user.name);
+            this.userForm.controls.username.setValue(user.username);
+            this.userForm.controls.email.setValue(user.email);
+            this.userForm.controls.addressStreet.setValue(user.address.street);
+            this.userForm.controls.phone.setValue(user.phone);
+            this.userForm.controls.website.setValue(user.website);
+            this.userForm.controls.companyName.setValue(user.company.name);
+            this.userName = user.name;
+          },
+          err => {
+            alert("Error occurred - User not found");
+            this.userForm.reset("");
+            this.editing = false;
+          }
+        );
         this.editing = true;
       } else {
         this.editing = false;
