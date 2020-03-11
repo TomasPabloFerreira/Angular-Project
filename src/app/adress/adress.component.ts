@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./adress.component.css']
 })
 export class AdressComponent implements OnInit {
-  addressForm = this.fb.group({
+  userForm = this.fb.group({
     name: [''],
     username: [''],
     email: [''],
@@ -34,14 +34,32 @@ export class AdressComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private _location: Location
-  ) { }
-
-  ngOnInit(): void {
+  ) {
     this.loadUser();
   }
+
+  ngOnInit(): void {
+  }
+
   onSubmit() {
-    alert('Thanks!');
-    this.addressForm.controls.company.setValue("holaa jaja")
+    let formData = JSON.stringify(this.userForm.value);
+    if (this.editing) {
+      this.placeholderService.editUser(formData, this.userId).subscribe(success => {
+        if (typeof success.id == 'undefined') {
+          alert('User edit failed');
+        } else {
+          alert('User edited successfully');
+        }
+      });
+    } else {
+      this.placeholderService.addUser(formData).subscribe(success => {
+        if (typeof success.id == 'undefined') {
+          alert('User insert failed');
+        } else {
+          alert('User added successfully');
+        }
+      });
+    }
   }
 
   loadUser(): void {
@@ -52,20 +70,19 @@ export class AdressComponent implements OnInit {
       if (userIdTmp != null) {
         this.userId = parseInt(userIdTmp);
         this.placeholderService.getUser(this.userId).subscribe(user => {
-          this.addressForm.controls.name.setValue(user.name);
-          this.addressForm.controls.username.setValue(user.username);
-          this.addressForm.controls.email.setValue(user.email);
-          this.addressForm.controls.addressStreet.setValue(user.address.street);
-          this.addressForm.controls.phone.setValue(user.phone);
-          this.addressForm.controls.website.setValue(user.website);
-          this.addressForm.controls.companyName.setValue(user.company.name);
+          this.userForm.controls.name.setValue(user.name);
+          this.userForm.controls.username.setValue(user.username);
+          this.userForm.controls.email.setValue(user.email);
+          this.userForm.controls.addressStreet.setValue(user.address.street);
+          this.userForm.controls.phone.setValue(user.phone);
+          this.userForm.controls.website.setValue(user.website);
+          this.userForm.controls.companyName.setValue(user.company.name);
           this.userName = user.name;
         });
         this.editing = true;
       } else {
         this.editing = false;
       }
-      
     });
   }
 

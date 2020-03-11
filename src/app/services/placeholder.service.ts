@@ -30,4 +30,20 @@ export class PlaceholderService {
     );
     return observableUsers;
   }
+
+  addUser(userForm: string): Observable <any> {
+    let success = this.httpClient.post<number>(
+      'https://jsonplaceholder.typicode.com/users/',
+      userForm,
+    );
+    return success;
+  }
+
+  editUser(userForm: string, id: number):Observable <any> {
+    let success = this.httpClient.put<number>(
+      'https://jsonplaceholder.typicode.com/users/' + id,
+      userForm,
+    );
+    return success;
+  }
 }
